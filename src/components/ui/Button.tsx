@@ -1,5 +1,5 @@
 import * as React from 'react'
-import kalkStore, {IKalkStore} from '../../stores/kalkStore'
+import {IKalkStore} from '../../stores/kalkStore'
 import {KalkNumber, Operations} from '../../type-definitions/kalk'
 import {inject, observer} from 'mobx-react'
 
@@ -21,7 +21,7 @@ const defaultProps : ButtonProps = {
   value: null
 }
 
-const classNames = {
+export const classNames = {
   'ops': {
     default: 'bg-orange hover:bg-orange-light text-white',
     active: 'bg-orange-light text-white'
@@ -41,10 +41,10 @@ const classNames = {
   }
 }
 
-export default observer((props : ButtonProps & { kalkStore? : IKalkStore }) => {
+export default inject('kalkStore')(observer((props : ButtonProps & { kalkStore? : IKalkStore }) => {
   const actualProps = {...defaultProps, ...props}
 
-  const {op, value} = kalkStore.lastOperation
+  const {op, value} = props.kalkStore.lastOperation
 
   let cls = classNames[actualProps.colorScheme].default
   if (op === actualProps.operation && (value === actualProps.value || Number(value) === actualProps.value)) {
@@ -55,7 +55,7 @@ export default observer((props : ButtonProps & { kalkStore? : IKalkStore }) => {
 
   return <button
     className={cls}
-    onClick={() => kalkStore.executeOperation(actualProps.operation, actualProps.value)}>
+    onClick={() => props.kalkStore.executeOperation(actualProps.operation, actualProps.value)}>
     {actualProps.display}
   </button>
-})
+}))

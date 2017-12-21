@@ -54,3 +54,4 @@ fabric.properties
 dist/bundle.js
 dist/bundle.js.map
 node_modules
+coverage

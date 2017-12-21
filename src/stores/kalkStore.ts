@@ -8,7 +8,7 @@ export interface IKalkStore {
   executeOperation : (op : Operations, value : any) => void
 }
 
-class KalkStore implements IKalkStore {
+export class KalkStore implements IKalkStore {
   /* ---- fields and shit ---- */
   @observable
   private _isInitState = true
@@ -63,7 +63,7 @@ class KalkStore implements IKalkStore {
   }
 
   @action
-  public executeOperation(op : Operations, value : any) {
+  public executeOperation(op : Operations, value : any = null) {
     switch (op) {
       case Operations.INPUT_NUMBER:
         if (this._numberStack.length === 1 && parseInt(this._numberStack[0]) === 0) {

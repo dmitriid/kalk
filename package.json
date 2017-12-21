@@ -6,19 +6,45 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack -w"
+    "watch": "webpack -w",
+    "test": "jest",
+    "test-watch": "jest --watchAll",
+    "coverage": "jest --coverage"
   },
   "dependencies": {
+    "@types/enzyme-adapter-react-16": "^1.0.1",
     "mobx": "^3.4.1",
     "mobx-react": "^4.3.5",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "typescript": "^2.6.2"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.6",
+    "@types/jest": "^21.1.9",
     "@types/react": "^16.0.31",
     "@types/react-dom": "^16.0.3",
+    "@types/react-test-renderer": "^16.0.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.0.3",
+    "react-test-renderer": "^16.2.0",
+    "ts-jest": "^22.0.0",
     "ts-loader": "^3.2.0",
+    "typescript": "^2.6.2",
     "webpack": "^3.10.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "spec\\..*(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
