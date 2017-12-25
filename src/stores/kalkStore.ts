@@ -129,7 +129,7 @@ export class KalkStore implements IKalkStore {
           const percent     = this.calculatePercent(value, this._aggregateValue)
           this._numberStack = percent.toString().split('')
 
-          this.executeOperation(Operations.AGGREGATE, null)
+          //this.executeOperation(Operations.AGGREGATE, null)
         } else {
           this._operationsStack.push(op)
         }

@@ -86,6 +86,8 @@ describe('Fukken percents', () => {
     this.kalkStore.executeOperation(Operations.ADD, null)
     this.kalkStore.executeOperation(Operations.INPUT_NUMBER, 2)
     this.kalkStore.executeOperation(Operations.PERCENT, null)
+    expect(this.kalkStore.displayValue).toBe('0.2')
+    this.kalkStore.executeOperation(Operations.AGGREGATE, null)
     expect(this.kalkStore.displayValue).toBe('10.2')
   })
   it('10 - 2% is 9.8', () => {
@@ -94,6 +96,8 @@ describe('Fukken percents', () => {
     this.kalkStore.executeOperation(Operations.SUBTRACT, null)
     this.kalkStore.executeOperation(Operations.INPUT_NUMBER, 2)
     this.kalkStore.executeOperation(Operations.PERCENT, null)
+    expect(this.kalkStore.displayValue).toBe('0.2')
+    this.kalkStore.executeOperation(Operations.AGGREGATE, null)
     expect(this.kalkStore.displayValue).toBe('9.8')
   })
   it('10 * 2% is 0.2', () => {
@@ -102,6 +106,8 @@ describe('Fukken percents', () => {
     this.kalkStore.executeOperation(Operations.MULTIPLY, null)
     this.kalkStore.executeOperation(Operations.INPUT_NUMBER, 2)
     this.kalkStore.executeOperation(Operations.PERCENT, null)
+    expect(this.kalkStore.displayValue).toBe('0.02')
+    this.kalkStore.executeOperation(Operations.AGGREGATE, null)
     expect(this.kalkStore.displayValue).toBe('0.2')
   })
   it('10 / 2% is 500', () => {
@@ -110,6 +116,8 @@ describe('Fukken percents', () => {
     this.kalkStore.executeOperation(Operations.DIVIDE, null)
     this.kalkStore.executeOperation(Operations.INPUT_NUMBER, 2)
     this.kalkStore.executeOperation(Operations.PERCENT, null)
+    expect(this.kalkStore.displayValue).toBe('0.02')
+    this.kalkStore.executeOperation(Operations.AGGREGATE, null)
     expect(this.kalkStore.displayValue).toBe('500')
   })
 })
